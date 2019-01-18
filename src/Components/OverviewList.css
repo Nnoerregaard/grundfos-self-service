@@ -1,0 +1,11 @@
+
+.OverviewList {
+  width: 30%;
+  float: left;
+  border: 1px solid red;
+  margin: 5px;
+}
+
+.OverviewList div {
+  padding: 0px 10px 15px 10px;
+}

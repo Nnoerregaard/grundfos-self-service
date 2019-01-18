@@ -1,0 +1,13 @@
+.ActionIcon {
+  padding-right: 10px;
+}
+
+.DataItemLine {
+  font-size: 20px;
+  text-align: left;
+}
+
+/* NB! This float is an issue with regards to responsiveness */
+.Subtitle {
+    float: right;
+}
