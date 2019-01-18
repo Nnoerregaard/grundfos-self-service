@@ -3,7 +3,11 @@
     margin-bottom: 20px
 }
 
-.InputElement {
+.MainDiv {
     text-align: left;
     font-weight: 900;
+}
+
+.Title {
+    text-align: center;
 }

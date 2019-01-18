@@ -3,37 +3,3 @@
   width: 80%;
   margin:auto;
 }
-
-.CalendarView {
-  border-width: 0px;
-  width: 800px;
-  height: 600px;
-}
-
-.MainCalendarView {
-  width: 65%;
-  float: left;
-  border: 1px solid red;
-  margin: 5px;
-}
-
-.ExistingReservations {
-  width: 65%;
-  float: left;
-  border: 1px solid red;
-  margin: 5px;
-}
-
-.NewReservation {
-  width: 30%;
-  float: left;
-  border: 1px solid red;
-  margin: 5px;
-}
-
-.OverviewList {
-  width: 30%;
-  float: left;
-  border: 1px solid red;
-  margin: 5px;
-}
