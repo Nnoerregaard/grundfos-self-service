@@ -1,10 +1,14 @@
 .ActionIcon {
-  padding-right: 10px;
+    padding-left: 10px;
 }
 
 .DataItemLine {
-  font-size: 20px;
-  text-align: left;
+    font-size: 20px;
+    text-align: left;
+}
+
+.Title {
+    padding-left: 10px;
 }
 
 /* NB! This float is an issue with regards to responsiveness */

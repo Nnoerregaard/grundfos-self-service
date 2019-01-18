@@ -1,0 +1,9 @@
+.Input {
+    width: 100%;
+    margin-bottom: 20px
+}
+
+.InputElement {
+    text-align: left;
+    font-weight: 900;
+}

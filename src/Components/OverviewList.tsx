@@ -7,16 +7,17 @@ interface OverviewListProps {
     dataItems: DataItem[];
 }
 
+// This is the one which should be responsible for what should happen when something is being edited!
 function OverviewList(props: OverviewListProps){
     let dataItemList = props.dataItems.map(dataItem => {
-        return <DataItemLine key={dataItem.id} id={dataItem.id} title={dataItem.title} subtitle={dataItem.subtitle} />
+        return <DataItemLine key={dataItem.id} id={dataItem.id} title={dataItem.title} subtitle={dataItem.subtitle} isEditable={dataItem.isEditable} />
     });
 
     return (
-        <div className="OverviewList">
+        <span>
             <h3>{props.name}</h3>
             {dataItemList}
-        </div>
+        </span>
     );
 }
 
