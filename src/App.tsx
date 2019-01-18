@@ -4,7 +4,8 @@ import './App.css';
 import FrontpageCard from './Components/FrontpageCard';
 import bookingImage from './resources/booking.svg';
 
-import Booking from './Components/Booking';
+import withTopbar from './Components/HigherOrderComponents/withTopbar';
+import { Booking } from './Components/Booking';
 
 import FacebookLogin, { ReactFacebookLoginInfo } from 'react-facebook-login';
 
@@ -39,6 +40,8 @@ class App extends Component<Object, AppState> {
       this.setState({isLoggedIn: true, userId: response.id});
     }
 
+    const BookingWithTopbar = withTopbar(Booking, {title: "Fællesrumsbooking", goBack: this.goBack});
+
     return (
       <div className="App">
         {/* Login part */}
@@ -60,7 +63,8 @@ class App extends Component<Object, AppState> {
           {/* The content part */}
           <div hidden={this.state.selectedCard != "booking"}>
             {/* TODO: Fix the go back through a higher order component! */}
-            <Booking goBack={this.goBack}/>
+            <BookingWithTopbar />
+            {/*<Booking goBack={this.goBack}/>*/}
           </div>
         </div>
       </div>

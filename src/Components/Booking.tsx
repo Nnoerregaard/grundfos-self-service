@@ -4,12 +4,7 @@ import './Booking.css';
 import OverviewList from './OverviewList';
 import CreationForm from './CreationForm';
 
-// TODO: Move this to a higher order component!
-interface BookingProps {
-    goBack: () => void;
-}
-
-function Booking(props: BookingProps){
+export function Booking(props: object){
     //NB! This mock data should come from a 'real' webserver call
     const dataItems = [{ title: "Onsdag d. 30 januar", subtitle: "12.00 til 15.30", id: 1, isEditable: true},
                        { title: "Tirsdag d. 5 februar", subtitle: "12.00 til 15.30", id: 2, isEditable: true},
@@ -25,7 +20,6 @@ function Booking(props: BookingProps){
                     { name: "Sluttidspunkt", type: "time", initialValue: ""}]
     return (
         <div>
-            <button onClick={props.goBack}>Go back dummy</button>
             <div className="MainCalendarView">
                 <iframe src="https://calendar.google.com/calendar/b/2/embed?showTitle=0&amp;showPrint=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=egrbc3g3moiofga2rqsvnok2m0%40group.calendar.google.com&amp;color=%235229A3&amp;ctz=Europe%2FCopenhagen"
                     className="CalendarView" scrolling="no"></iframe>
@@ -42,5 +36,3 @@ function Booking(props: BookingProps){
         </div>
     )
 }
-
-export default Booking;
