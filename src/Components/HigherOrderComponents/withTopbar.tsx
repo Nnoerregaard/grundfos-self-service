@@ -8,7 +8,6 @@ interface TopbarProps {
     goBack: () => void;
 }
 
-// TODO: Figure out how to type this properly!
 function withTopbar(WrappedComponent: any, data: TopbarProps) {
     return (props: object) => {
         return (

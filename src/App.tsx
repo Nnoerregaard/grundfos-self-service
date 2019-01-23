@@ -25,6 +25,7 @@ class App extends Component<Object, AppState> {
 
     let googleCalendarApiKey = 'AIzaSyC5r7q3hK9N7gK0ymKgHybpQ5imQH7HEEw';
     let googleCalendarClientId = '2240079267-j91qp9qul4bqqu622o1kmsvbkjv7qoum.apps.googleusercontent.com';
+
   }
 
   selectCard(selectedCard: string){
