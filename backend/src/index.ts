@@ -1,30 +1,56 @@
-const http = require('http');
 
-/* Because it runs in a Docker container. 0.0.0.0 means all interfaces (including the ip in the container mapping to localhost on the host machine)
-   See: https://forums.docker.com/t/using-localhost-for-to-access-running-container/3148 */
+//const http = require('http');
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+var MongoClient = require('mongodb').MongoClient
+
 const hostname = '0.0.0.0';
 const port = 3000;
 
-// TODO: Find the correct types!
-const server = http.createServer((req: any, res: any) => {
-    var MongoClient = require('mongodb').MongoClient
-
-    // Connection URL
-    var url = 'mongodb://db:27017/myproject';
-    // Use connect method to connect to the Server
-    MongoClient.connect(url, function (err: any, db: any) {
-        console.log(err);
-        console.log("Connected correctly to server");
-
-        db.close();
-    });
-    
-    console.log("In create server!");
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello World\n');
+// NB For debug usage outside of compose
+/*
+app.get('/', (req: any, res: any) => {
+    res.send("Hello world!");
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+app.post('/test', (req: any, res: any) => {
+
 });
+
+app.listen(port, hostname);
+console.log("Backend is now listening on port: " + port);
+*/
+
+
+// Connection URL
+var url = 'mongodb://db:27017/myproject';
+// Use connect method to connect to the Server
+MongoClient.connect(url, function (err: any, db: any) {
+    if (err == null) {
+        console.log("Connected correctly to database!");
+
+        app.get('/', (req: any, res: any) => {
+            res.send("Hello world!");
+        });
+
+        app.post('/test', (req: any, res: any) => {
+            
+            db.insertOne({test: req.body.testText});
+        });
+
+        app.get('/test', (req: any, res: any) => {
+            res.send(db.find({}));
+        })
+
+        app.listen(port);
+        console.log("Backend is now listening on port: " + port);
+    } else {
+        console.log("During connection to MongoDB: " + err);
+    }
+});
+
+/* Because it runs in a Docker container. 0.0.0.0 means all interfaces (including the ip in the container mapping to localhost on the host machine)
+   See: https://forums.docker.com/t/using-localhost-for-to-access-running-container/3148 */
