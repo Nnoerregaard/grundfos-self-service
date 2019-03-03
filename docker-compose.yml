@@ -1,4 +1,4 @@
-version: '3'
+version: "3.7"
 services:
   app:
     build: .
@@ -7,6 +7,8 @@ services:
     depends_on:
       - backend
       - db
+    volumes:
+      - ./src:/usr/app/src
     networks:
       - common
   backend:
@@ -15,6 +17,8 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    volumes:
+      - ./backend/src:/root/src
     networks:
       - common
   db:
@@ -23,4 +27,3 @@ services:
       - common
 networks:
   common:
-
